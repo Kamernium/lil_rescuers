@@ -1,0 +1,14 @@
+extends Control
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	$Button.pressed.connect(on_button_pressed)
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+func on_button_pressed():
+	get_tree().change_scene_to_packed(GlobalManager.last_played_zone)

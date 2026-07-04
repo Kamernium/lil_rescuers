@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://bs6ei4a1lttw1"]
+
+[ext_resource type="Script" uid="uid://1mm4uw0wkc1n" path="res://deathscreen.gd" id="1_5mq0c"]
+[ext_resource type="Texture2D" uid="uid://vk8uils8omh8" path="res://skull.webp" id="1_ftl74"]
+
+[node name="deathscreen" type="Control" unique_id=1629218379]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5mq0c")
+
+[node name="Label" type="Label" parent="." unique_id=1534225253]
+layout_mode = 0
+offset_left = 357.0
+offset_top = 285.0
+offset_right = 794.0
+offset_bottom = 364.0
+theme_override_font_sizes/font_size = 30
+text = "It seems that you're dead..."
+autowrap_mode = 3
+
+[node name="Skull" type="Sprite2D" parent="." unique_id=514458873]
+position = Vector2(576, 125)
+scale = Vector2(0.17656243, 0.171875)
+texture = ExtResource("1_ftl74")
+
+[node name="Button" type="Button" parent="." unique_id=1784164053]
+layout_mode = 0
+offset_left = 468.0
+offset_top = 463.0
+offset_right = 622.0
+offset_bottom = 542.0
+text = "Retry"

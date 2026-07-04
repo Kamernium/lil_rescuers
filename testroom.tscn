@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://cbdmxa4h0gmsj"]
+
+[ext_resource type="Texture2D" uid="uid://duiafe5dxxr1b" path="res://icon.svg" id="1_q11y4"]
+[ext_resource type="PackedScene" uid="uid://bu3aqxdr0btnk" path="res://player.tscn" id="2_aes75"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aes75"]
+size = Vector2(1695, 76)
+
+[node name="Testroom" type="Node2D" unique_id=2002978993]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=197256040]
+position = Vector2(662, 573)
+
+[node name="Icon" type="Sprite2D" parent="StaticBody2D" unique_id=1594277857]
+position = Vector2(-7.0000305, 20)
+scale = Vector2(13.453125, 0.6875)
+texture = ExtResource("1_q11y4")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1113244059]
+position = Vector2(-4.5, 22)
+shape = SubResource("RectangleShape2D_aes75")
+metadata/_edit_lock_ = true
+
+[node name="Player" parent="." unique_id=660081396 instance=ExtResource("2_aes75")]
+position = Vector2(-129, 494)
