@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 var lilguys: int = 15
 var can_get_hurt: bool = true
+var projectile = preload("res://lilguy.tscn")
 
 @onready var current_scene = load(get_parent().scene_file_path)
 
@@ -67,6 +68,9 @@ func attack_process():
 	#Aquí iría todo lo que es instanciar una criatura
 	#hacia la dirección seleccionada y que haga daño al enemigo
 	#al colisionar
+	var lilguylaunch = projectile.instantiate()
+	lilguylaunch.global_position = self.global_position
+	get_tree().current_scene.add_child(lilguylaunch)
 	lilguy_recovery(7.0,1)
 
 

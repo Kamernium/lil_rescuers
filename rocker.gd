@@ -9,6 +9,7 @@ func _ready() -> void:
 	#AVISO: LA COLISIÓN DE DETECCIÓN DE DAÑO SE ENCUENTRA EN LAYER 2
 	$detectplayer.area_entered.connect(player_entered)
 	$detectplayer.area_exited.connect(player_exited)
+	$"Areadaño".area_entered.connect(received_attack)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -27,3 +28,8 @@ func player_entered(area):
 
 func player_exited(_area):
 	target = null
+
+
+func received_attack(_area):
+	#Animación de daño
+	queue_free()

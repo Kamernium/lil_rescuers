@@ -21,7 +21,14 @@ position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_onrkg")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=6657060]
-limit_top = 0
+zoom = Vector2(0.65, 0.65)
+position_smoothing_enabled = true
+position_smoothing_speed = 6.0
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.15
+drag_right_margin = 0.15
+drag_bottom_margin = 0.15
 
 [node name="Label" type="Label" parent="." unique_id=1685833672]
 offset_left = -16.0

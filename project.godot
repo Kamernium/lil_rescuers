@@ -18,6 +18,10 @@ config/icon="res://icon.svg"
 
 GlobalManager="*uid://ufmwx0nrjn86"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [input]
 
 attack={
