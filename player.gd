@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 var lilguys: int = 15
+var can_get_hurt: bool = true
 
 @onready var current_scene = load(get_parent().scene_file_path)
 
@@ -10,7 +11,7 @@ const JUMP_VELOCITY = -550.0
 
 
 func _ready() -> void:
-	pass
+	$"Areadaño".area_entered.connect(recibir_impacto)
 
 func _physics_process(delta: float) -> void:
 	if lilguys < 1:
@@ -55,11 +56,43 @@ func death():
 	
 	get_tree().change_scene_to_file("res://deathscreen.tscn")
 
+func lilguy_recovery(timeout : float,lostguys : int):
+	await get_tree().create_timer(timeout).timeout
+	#Animacion de retirada
+	lilguys += lostguys
+
+
 func attack_process():
 	lilguys -= 1
 	#Aquí iría todo lo que es instanciar una criatura
 	#hacia la dirección seleccionada y que haga daño al enemigo
 	#al colisionar
-	await get_tree().create_timer(7.0).timeout
-	#Animacion de retirada
-	lilguys += 1
+	lilguy_recovery(7.0,1)
+
+
+
+func recibir_impacto(_area):
+	if can_get_hurt:
+		lilguys -= 5
+		lilguy_recovery(10.5,5)
+		damage_cooldown()
+		#Y reproducir animación de daño
+	else:
+		return
+
+func damage_cooldown():
+	#var cooldown_anim = get_tree().create_tween()
+	can_get_hurt = false
+	#animación tween
+	$Icon.modulate.a = 0.5
+	for i in range(5):
+		$Icon.visible = false
+		await get_tree().create_timer(0.3).timeout
+		$Icon.visible = true
+		await get_tree().create_timer(0.3).timeout
+		#cooldown_anim.tween_property($Icon,"visible",false,0.3)
+		#cooldown_anim.tween_property($Icon,"visible",true,0.3)
+	
+	await get_tree().create_timer(3.0).timeout
+	$Icon.modulate.a = 1
+	can_get_hurt = true

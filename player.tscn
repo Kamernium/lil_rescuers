@@ -7,6 +7,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
 size = Vector2(116, 120)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i3pqv"]
+size = Vector2(116, 119)
+
 [node name="Player" type="CharacterBody2D" unique_id=660081396]
 script = ExtResource("1_onrkg")
 
@@ -36,3 +39,10 @@ visible = false
 position = Vector2(-257, -1)
 rotation = 3.1415927
 texture = ExtResource("3_i3pqv")
+
+[node name="Areadaño" type="Area2D" parent="." unique_id=697590240]
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areadaño" unique_id=1004894560]
+position = Vector2(-1, -1.5)
+shape = SubResource("RectangleShape2D_i3pqv")

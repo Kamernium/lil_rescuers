@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://cxxiga5c51xtw"]
+
+[ext_resource type="Script" uid="uid://c0y3lmwx1t133" path="res://rocker.gd" id="1_rdx13"]
+[ext_resource type="Texture2D" uid="uid://credguiroj1cv" path="res://rockerplchd.png" id="2_l5l2b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k3dwm"]
+size = Vector2(80, 148)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rdx13"]
+size = Vector2(94, 160)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rdx13"]
+radius = 426.22998
+
+[node name="Rocker" type="CharacterBody2D" unique_id=1902046366]
+script = ExtResource("1_rdx13")
+
+[node name="Rockerplchd" type="Sprite2D" parent="." unique_id=651711910]
+texture_filter = 1
+position = Vector2(10.343747, -12.843749)
+scale = Vector2(4.7910156, 5.0722656)
+texture = ExtResource("2_l5l2b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1560749133]
+position = Vector2(12, -10)
+shape = SubResource("RectangleShape2D_k3dwm")
+
+[node name="Areadaño" type="Area2D" parent="." unique_id=731689485]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areadaño" unique_id=17517866]
+position = Vector2(14, -11)
+shape = SubResource("RectangleShape2D_rdx13")
+
+[node name="detectplayer" type="Area2D" parent="." unique_id=1670865077]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detectplayer" unique_id=878191741]
+shape = SubResource("CircleShape2D_rdx13")
