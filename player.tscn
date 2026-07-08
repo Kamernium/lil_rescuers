@@ -11,6 +11,7 @@ size = Vector2(116, 120)
 size = Vector2(116, 119)
 
 [node name="Player" type="CharacterBody2D" unique_id=660081396]
+collision_layer = 0
 script = ExtResource("1_onrkg")
 
 [node name="Icon" type="Sprite2D" parent="." unique_id=498740208]

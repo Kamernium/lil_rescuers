@@ -22,6 +22,10 @@ GlobalManager="*uid://ufmwx0nrjn86"
 
 window/stretch/mode="canvas_items"
 
+[global_group]
+
+projectiles="lilguys"
+
 [input]
 
 attack={

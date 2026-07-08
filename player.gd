@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 var lilguys: int = 15
 var can_get_hurt: bool = true
+var can_shoot : bool = true
 var projectile = preload("res://lilguy.tscn")
 
 @onready var current_scene = load(get_parent().scene_file_path)
@@ -25,10 +26,13 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 	
-	if Input.is_action_pressed("attack"):
-		$Flechader.visible = true
+	if can_shoot:
+		if Input.is_action_pressed("attack"):
+			$Flechader.visible = true
+		else:
+			$Flechader.visible = false
 	else:
-		$Flechader.visible = false
+		return
 	
 	
 	if Input.is_action_pressed("ui_left"):
@@ -39,7 +43,10 @@ func _physics_process(delta: float) -> void:
 		
 	
 	if Input.is_action_just_released("attack"):
-		attack_process()
+		if can_shoot:
+			attack_process()
+		else:
+			return
 	
 	#var direction := Input.get_axis("ui_left", "ui_right")
 	#if direction:
@@ -65,13 +72,14 @@ func lilguy_recovery(timeout : float,lostguys : int):
 
 func attack_process():
 	lilguys -= 1
-	#Aquí iría todo lo que es instanciar una criatura
-	#hacia la dirección seleccionada y que haga daño al enemigo
-	#al colisionar
 	var lilguylaunch = projectile.instantiate()
 	lilguylaunch.global_position = self.global_position
 	get_tree().current_scene.add_child(lilguylaunch)
 	lilguy_recovery(7.0,1)
+	can_shoot = false
+	await get_tree().create_timer(0.2).timeout
+	can_shoot = true
+
 
 
 

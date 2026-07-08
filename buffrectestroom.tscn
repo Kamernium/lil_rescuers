@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dikprgbxsbxsr"]
+
+[ext_resource type="Texture2D" uid="uid://duiafe5dxxr1b" path="res://icon.svg" id="1_lftum"]
+[ext_resource type="PackedScene" uid="uid://bu3aqxdr0btnk" path="res://player.tscn" id="2_0ckq7"]
+[ext_resource type="PackedScene" uid="uid://o3lngx5td0iq" path="res://buffrec.tscn" id="3_yhe16"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k2era"]
+size = Vector2(2336, 118)
+
+[node name="buffrectestroom" type="Node2D" unique_id=1818343183]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1276726982]
+position = Vector2(147, 311)
+
+[node name="Icon" type="Sprite2D" parent="StaticBody2D" unique_id=400741960]
+scale = Vector2(18.320313, 1)
+texture = ExtResource("1_lftum")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=188184575]
+shape = SubResource("RectangleShape2D_k2era")
+metadata/_edit_lock_ = true
+
+[node name="Player" parent="." unique_id=660081396 instance=ExtResource("2_0ckq7")]
+position = Vector2(-942, 185)
+
+[node name="buffrec" parent="." unique_id=1417850835 instance=ExtResource("3_yhe16")]
+position = Vector2(1180, 180)

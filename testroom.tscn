@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://duiafe5dxxr1b" path="res://icon.svg" id="1_q11y4"]
 [ext_resource type="PackedScene" uid="uid://bu3aqxdr0btnk" path="res://player.tscn" id="2_aes75"]
 [ext_resource type="PackedScene" uid="uid://cxxiga5c51xtw" path="res://rocker.tscn" id="3_dwq1p"]
+[ext_resource type="PackedScene" uid="uid://rihgnrs2nu1w" path="res://marty.tscn" id="4_c7xoc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aes75"]
 size = Vector2(1695, 76)
@@ -27,4 +28,7 @@ metadata/_edit_lock_ = true
 position = Vector2(-129, 494)
 
 [node name="Rocker" parent="." unique_id=1902046366 instance=ExtResource("3_dwq1p")]
-position = Vector2(997, 480)
+position = Vector2(847, 480)
+
+[node name="marty" parent="." unique_id=400869686 instance=ExtResource("4_c7xoc")]
+position = Vector2(1395, 504)
