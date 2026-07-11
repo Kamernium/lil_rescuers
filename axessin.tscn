@@ -4,54 +4,96 @@
 [ext_resource type="Script" uid="uid://bedgdcs7g6f2i" path="res://axessin.gd" id="1_vr0xy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vr0xy"]
-size = Vector2(286, 318)
+size = Vector2(544, 690)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rohl5"]
-radius = 786.00574
+radius = 1023.0239
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_tw8up"]
-radius = 169.00296
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rohl5"]
+size = Vector2(549, 333)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bnp83"]
-radius = 30.066593
+radius = 117.00427
+
+[sub_resource type="Animation" id="Animation_vr0xy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_rohl5"]
+resource_name = "slice"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -1.5707964, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tw8up"]
+_data = {
+&"RESET": SubResource("Animation_vr0xy"),
+&"slice": SubResource("Animation_rohl5")
+}
 
 [node name="axessin" type="CharacterBody2D" unique_id=1615843848]
 script = ExtResource("1_vr0xy")
 
 [node name="Axessin" type="Sprite2D" parent="." unique_id=328628365]
 texture_filter = 1
-scale = Vector2(9.5625, 10.187501)
+scale = Vector2(18.3125, 22.125)
 texture = ExtResource("1_vjtur")
-metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1397830860]
-position = Vector2(1, 6)
+position = Vector2(3, 13)
 shape = SubResource("RectangleShape2D_vr0xy")
-metadata/_edit_lock_ = true
 
 [node name="detect_player" type="Area2D" parent="." unique_id=1960902019]
-collision_layer = 0
-metadata/_edit_lock_ = true
+collision_layer = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detect_player" unique_id=82072637]
 shape = SubResource("CircleShape2D_rohl5")
-metadata/_edit_lock_ = true
 
 [node name="areadaño" type="Area2D" parent="." unique_id=1938384007]
 collision_layer = 2
-metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="areadaño" unique_id=395582330]
-position = Vector2(1, -84)
-shape = SubResource("CircleShape2D_tw8up")
-metadata/_edit_lock_ = true
+position = Vector2(0.5, -166.5)
+shape = SubResource("RectangleShape2D_rohl5")
 
 [node name="weak_point" type="Area2D" parent="." unique_id=1019148008]
 collision_layer = 8
 collision_mask = 4
-metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="weak_point" unique_id=1869398803]
-position = Vector2(1, 145)
+position = Vector2(1, 261)
 shape = SubResource("CircleShape2D_bnp83")
-metadata/_edit_lock_ = true
+
+[node name="Timer" type="Timer" parent="." unique_id=1947342014]
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=428391816]
+libraries/ = SubResource("AnimationLibrary_tw8up")
+
+[node name="Label" type="Label" parent="." unique_id=1019504561]
+offset_left = -103.0
+offset_top = -460.0
+offset_right = 108.0
+offset_bottom = -351.0
+theme_override_font_sizes/font_size = 50
+text = "asd"

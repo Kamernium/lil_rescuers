@@ -14,6 +14,7 @@ const JUMP_VELOCITY = -550.0
 
 func _ready() -> void:
 	$"Areadaño".area_entered.connect(recibir_impacto)
+	$bossmodeactivator.area_entered.connect(boss_mode)
 
 func _physics_process(delta: float) -> void:
 	if lilguys < 1:
@@ -108,3 +109,11 @@ func damage_cooldown():
 	await get_tree().create_timer(3.0).timeout
 	$Icon.modulate.a = 1
 	can_get_hurt = true
+
+
+func boss_mode(_area : Area2D):
+	var zoom_out = get_tree().create_tween()
+	zoom_out.tween_property($Camera2D,"zoom",Vector2(0.3,0.3),1.0)
+	
+	
+	

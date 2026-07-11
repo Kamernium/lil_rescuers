@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dndtnqn1fe0d2"]
+
+[ext_resource type="Script" uid="uid://bo0wir0muferp" path="res://axeprojectile.gd" id="1_akk55"]
+[ext_resource type="Texture2D" uid="uid://d3t7cf8ke1fj0" path="res://hacha.webp" id="1_cibio"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4qo3b"]
+radius = 149.00336
+
+[node name="axeprojectile" type="Area2D" unique_id=1073970094]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_akk55")
+
+[node name="Hacha" type="Sprite2D" parent="." unique_id=2111377475]
+scale = Vector2(0.17259373, 0.1338125)
+texture = ExtResource("1_cibio")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1207333619]
+shape = SubResource("CircleShape2D_4qo3b")

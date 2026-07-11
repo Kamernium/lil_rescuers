@@ -10,6 +10,9 @@ size = Vector2(116, 120)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i3pqv"]
 size = Vector2(116, 119)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4qo3b"]
+size = Vector2(116, 118)
+
 [node name="Player" type="CharacterBody2D" unique_id=660081396]
 collision_layer = 0
 script = ExtResource("1_onrkg")
@@ -32,10 +35,12 @@ drag_right_margin = 0.15
 drag_bottom_margin = 0.15
 
 [node name="Label" type="Label" parent="." unique_id=1685833672]
-offset_left = -16.0
-offset_top = -93.0
-offset_right = 24.0
-offset_bottom = -70.0
+offset_left = -32.0
+offset_top = -117.0
+offset_right = 8.0
+offset_bottom = -68.0
+theme_override_font_sizes/font_size = 35
+text = "a"
 
 [node name="Flechader" type="Sprite2D" parent="." unique_id=219545934]
 visible = false
@@ -54,3 +59,11 @@ collision_mask = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Areadaño" unique_id=1004894560]
 position = Vector2(-1, -1.5)
 shape = SubResource("RectangleShape2D_i3pqv")
+
+[node name="bossmodeactivator" type="Area2D" parent="." unique_id=1711473075]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bossmodeactivator" unique_id=1486330070]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_4qo3b")

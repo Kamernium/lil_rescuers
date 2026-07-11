@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://dnvuj7gmb4iih"]
+
+[ext_resource type="Texture2D" uid="uid://duiafe5dxxr1b" path="res://icon.svg" id="1_exjeb"]
+[ext_resource type="PackedScene" uid="uid://c33qt2n6edy25" path="res://axessin.tscn" id="2_yn5bj"]
+[ext_resource type="PackedScene" uid="uid://bu3aqxdr0btnk" path="res://player.tscn" id="3_c23yd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4qo3b"]
+size = Vector2(128.05176, 115.47827)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3w7jd"]
+size = Vector2(222, 4442)
+
+[node name="bosstest" type="Node2D" unique_id=504912937]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=534366369]
+position = Vector2(10.000015, 577)
+scale = Vector2(29.003906, 0.71874994)
+
+[node name="Icon" type="Sprite2D" parent="StaticBody2D" unique_id=1105162894]
+scale = Vector2(0.99999994, 1)
+texture = ExtResource("1_exjeb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1552887734]
+position = Vector2(0.03446588, 2.086853)
+scale = Vector2(0.99999964, 1)
+shape = SubResource("RectangleShape2D_4qo3b")
+
+[node name="axessin" parent="." unique_id=1615843848 instance=ExtResource("2_yn5bj")]
+position = Vector2(-711, 175)
+collision_layer = 0
+
+[node name="Player" parent="." unique_id=660081396 instance=ExtResource("3_c23yd")]
+position = Vector2(-1279, 466)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=1275742453]
+position = Vector2(-1609, 545)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=2003886002]
+position = Vector2(101, -194)
+shape = SubResource("RectangleShape2D_3w7jd")
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=499661011]
+position = Vector2(-426, 525)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" unique_id=3709708]
+position = Vector2(101, -194)
+shape = SubResource("RectangleShape2D_3w7jd")
+metadata/_edit_lock_ = true
