@@ -4,10 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://cpm7fwemouhmn" path="res://Marty.png" id="1_vu2ji"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sjqyy"]
-size = Vector2(56, 112)
+size = Vector2(91, 186)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sspw1"]
-size = Vector2(56, 111)
+size = Vector2(92, 185)
 
 [node name="marty" type="CharacterBody2D" unique_id=400869686]
 collision_layer = 2
@@ -16,11 +16,11 @@ script = ExtResource("1_sjqyy")
 
 [node name="Marty" type="Sprite2D" parent="." unique_id=24535889]
 texture_filter = 1
-scale = Vector2(4.734375, 4.6406245)
+scale = Vector2(7.605469, 7.7695313)
 texture = ExtResource("1_vu2ji")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1358862011]
-position = Vector2(-5, -10)
+position = Vector2(-7.5, -16)
 shape = SubResource("RectangleShape2D_sjqyy")
 
 [node name="Areadaño" type="Area2D" parent="." unique_id=12232444]
@@ -28,5 +28,5 @@ collision_layer = 2
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Areadaño" unique_id=1046729099]
-position = Vector2(-5, -10.5)
+position = Vector2(-7, -15.5)
 shape = SubResource("RectangleShape2D_sspw1")

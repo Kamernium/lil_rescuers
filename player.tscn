@@ -13,6 +13,9 @@ size = Vector2(116, 119)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4qo3b"]
 size = Vector2(116, 118)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_t57is"]
+radius = 88.23973
+
 [node name="Player" type="CharacterBody2D" unique_id=660081396]
 collision_layer = 0
 script = ExtResource("1_onrkg")
@@ -25,7 +28,7 @@ position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_onrkg")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=6657060]
-zoom = Vector2(0.65, 0.65)
+zoom = Vector2(0.4, 0.4)
 position_smoothing_enabled = true
 position_smoothing_speed = 6.0
 drag_horizontal_enabled = true
@@ -54,7 +57,8 @@ rotation = 3.1415927
 texture = ExtResource("3_i3pqv")
 
 [node name="Areadaño" type="Area2D" parent="." unique_id=697590240]
-collision_mask = 3
+collision_layer = 257
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Areadaño" unique_id=1004894560]
 position = Vector2(-1, -1.5)
@@ -67,3 +71,10 @@ collision_mask = 16
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bossmodeactivator" unique_id=1486330070]
 position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_4qo3b")
+
+[node name="intakill" type="Area2D" parent="." unique_id=674960953]
+collision_layer = 0
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="intakill" unique_id=697967842]
+shape = SubResource("CircleShape2D_t57is")

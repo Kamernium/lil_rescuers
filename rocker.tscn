@@ -10,9 +10,10 @@ size = Vector2(80, 148)
 size = Vector2(94, 160)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rdx13"]
-radius = 426.22998
+radius = 745.00604
 
 [node name="Rocker" type="CharacterBody2D" unique_id=1902046366]
+collision_layer = 0
 script = ExtResource("1_rdx13")
 
 [node name="Rockerplchd" type="Sprite2D" parent="." unique_id=651711910]

@@ -1,12 +1,11 @@
 extends CharacterBody2D
 
-@export var speed : float = 100.0
+@export var speed : float = 550.5
 var target : Area2D
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	#AVISO: LA COLISIÓN DE DETECCIÓN DE DAÑO SE ENCUENTRA EN LAYER 2
 	$detectplayer.area_entered.connect(player_entered)
 	$detectplayer.area_exited.connect(player_exited)
 	$"Areadaño".area_entered.connect(received_attack)
@@ -32,4 +31,5 @@ func player_exited(_area):
 
 func received_attack(_area):
 	#Animación de daño
+	await get_tree().create_timer(0.01).timeout
 	queue_free()

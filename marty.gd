@@ -18,9 +18,10 @@ func collision(area : Area2D):
 		if !can_hurt:
 			#Animación bloqueando ataque
 			can_hurt = true
-			await get_tree().create_timer(0.7).timeout
+			await get_tree().create_timer(0.4).timeout
 			can_hurt = false 
 		else:
+			await get_tree().create_timer(0.01).timeout
 			queue_free()
 			
 	else:

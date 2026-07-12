@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://dlt5jd1qq75an"]
+
+[ext_resource type="Script" uid="uid://cvnsjw8rt8thl" path="res://one_use_platform.gd" id="1_cv0pf"]
+[ext_resource type="Texture2D" uid="uid://yw6hpp05ksey" path="res://Tileset_snow.png" id="2_3a17c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4qo3b"]
+atlas = ExtResource("2_3a17c")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4qo3b"]
+size = Vector2(127, 129)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3w7jd"]
+size = Vector2(125, 34)
+
+[node name="One_use_platform" type="StaticBody2D" unique_id=938807102]
+script = ExtResource("1_cv0pf")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1837888396]
+texture = SubResource("AtlasTexture_4qo3b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=155720944]
+position = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_4qo3b")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=633687536]
+collision_layer = 0
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=658317468]
+position = Vector2(-0.5, -80)
+shape = SubResource("RectangleShape2D_3w7jd")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1839175630]
+rect = Rect2(-64, -60, 128, 124)
+
+[node name="Timer" type="Timer" parent="." unique_id=122352709]
+one_shot = true

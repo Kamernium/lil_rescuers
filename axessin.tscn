@@ -7,7 +7,7 @@
 size = Vector2(544, 690)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rohl5"]
-radius = 1023.0239
+radius = 1722.0839
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rohl5"]
 size = Vector2(549, 333)
@@ -52,6 +52,7 @@ _data = {
 }
 
 [node name="axessin" type="CharacterBody2D" unique_id=1615843848]
+collision_layer = 0
 script = ExtResource("1_vr0xy")
 
 [node name="Axessin" type="Sprite2D" parent="." unique_id=328628365]

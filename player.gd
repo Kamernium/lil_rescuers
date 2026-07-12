@@ -3,18 +3,22 @@ extends CharacterBody2D
 var lilguys: int = 15
 var can_get_hurt: bool = true
 var can_shoot : bool = true
+var bossmode : bool = false
 var projectile = preload("res://lilguy.tscn")
+
 
 @onready var current_scene = load(get_parent().scene_file_path)
 
 
 const SPEED = 900.0
-const JUMP_VELOCITY = -550.0
+const JUMP_VELOCITY = -750.0
 
 
 func _ready() -> void:
 	$"Areadaño".area_entered.connect(recibir_impacto)
+	$"Areadaño".body_entered.connect(recibir_impacto)
 	$bossmodeactivator.area_entered.connect(boss_mode)
+	$intakill.area_entered.connect(out_of_bounds)
 
 func _physics_process(delta: float) -> void:
 	if lilguys < 1:
@@ -61,9 +65,11 @@ func _physics_process(delta: float) -> void:
 
 func death():
 	#print("MUERTE")
-	GlobalManager.last_played_zone = current_scene
 	
+	GlobalManager.last_played_zone = current_scene
+	await get_tree().create_timer(0.01).timeout
 	get_tree().change_scene_to_file("res://deathscreen.tscn")
+	
 
 func lilguy_recovery(timeout : float,lostguys : int):
 	await get_tree().create_timer(timeout).timeout
@@ -78,7 +84,7 @@ func attack_process():
 	get_tree().current_scene.add_child(lilguylaunch)
 	lilguy_recovery(7.0,1)
 	can_shoot = false
-	await get_tree().create_timer(0.2).timeout
+	await get_tree().create_timer(0.13).timeout
 	can_shoot = true
 
 
@@ -114,6 +120,12 @@ func damage_cooldown():
 func boss_mode(_area : Area2D):
 	var zoom_out = get_tree().create_tween()
 	zoom_out.tween_property($Camera2D,"zoom",Vector2(0.3,0.3),1.0)
+	bossmode = true
 	
 	
 	
+
+
+
+func out_of_bounds(_area):
+	death()

@@ -10,7 +10,7 @@ size = Vector2(158, 113)
 size = Vector2(167, 122.5)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2rjm7"]
-radius = 426.22998
+radius = 665.1083
 
 [node name="buffrec" type="CharacterBody2D" unique_id=1417850835]
 script = ExtResource("1_y7wyp")
