@@ -1,30 +1,33 @@
 [gd_scene format=3 uid="uid://bu3aqxdr0btnk"]
 
 [ext_resource type="Script" uid="uid://5trjjm8wbgol" path="res://player.gd" id="1_onrkg"]
-[ext_resource type="Texture2D" uid="uid://duiafe5dxxr1b" path="res://icon.svg" id="2_i3pqv"]
+[ext_resource type="Texture2D" uid="uid://36y66qbbm2tr" path="res://bfxr_sounds/player_sprite.png" id="2_hqtel"]
 [ext_resource type="Texture2D" uid="uid://cn4eh4l13oa6s" path="res://flecha.png" id="3_i3pqv"]
+[ext_resource type="Texture2D" uid="uid://dokejx2ktswia" path="res://bfxr_sounds/life_points.png" id="4_hqtel"]
+[ext_resource type="FontFile" uid="uid://bwkiolxlfuxei" path="res://AlfaSlabOne-Regular.ttf" id="4_sweqy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
-size = Vector2(116, 120)
+size = Vector2(174, 93)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i3pqv"]
-size = Vector2(116, 119)
+size = Vector2(175, 91)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4qo3b"]
-size = Vector2(116, 118)
+size = Vector2(177, 92)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_t57is"]
-radius = 88.23973
+radius = 127.0
 
 [node name="Player" type="CharacterBody2D" unique_id=660081396]
 collision_layer = 0
 script = ExtResource("1_onrkg")
 
-[node name="Icon" type="Sprite2D" parent="." unique_id=498740208]
-texture = ExtResource("2_i3pqv")
+[node name="Player_spr" type="Sprite2D" parent="." unique_id=498740208]
+scale = Vector2(1.4687501, 1.3671874)
+texture = ExtResource("2_hqtel")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2019709098]
-position = Vector2(0, -1)
+position = Vector2(0, 33)
 shape = SubResource("RectangleShape2D_onrkg")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=6657060]
@@ -36,14 +39,6 @@ drag_vertical_enabled = true
 drag_left_margin = 0.15
 drag_right_margin = 0.15
 drag_bottom_margin = 0.15
-
-[node name="Label" type="Label" parent="." unique_id=1685833672]
-offset_left = -32.0
-offset_top = -117.0
-offset_right = 8.0
-offset_bottom = -68.0
-theme_override_font_sizes/font_size = 35
-text = "a"
 
 [node name="Flechader" type="Sprite2D" parent="." unique_id=219545934]
 visible = false
@@ -61,7 +56,7 @@ collision_layer = 257
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Areadaño" unique_id=1004894560]
-position = Vector2(-1, -1.5)
+position = Vector2(0, 34)
 shape = SubResource("RectangleShape2D_i3pqv")
 
 [node name="bossmodeactivator" type="Area2D" parent="." unique_id=1711473075]
@@ -69,7 +64,7 @@ collision_layer = 0
 collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bossmodeactivator" unique_id=1486330070]
-position = Vector2(0, -2)
+position = Vector2(0, 33)
 shape = SubResource("RectangleShape2D_4qo3b")
 
 [node name="intakill" type="Area2D" parent="." unique_id=674960953]
@@ -78,3 +73,61 @@ collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="intakill" unique_id=697967842]
 shape = SubResource("CircleShape2D_t57is")
+
+[node name="Music" type="AudioStreamPlayer2D" parent="." unique_id=1195445110]
+autoplay = true
+
+[node name="SFX" type="AudioStreamPlayer2D" parent="." unique_id=1705785603]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1603419327]
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=1685833672]
+offset_left = 543.0
+offset_top = 29.0
+offset_right = 583.0
+offset_bottom = 78.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_sweqy")
+theme_override_font_sizes/font_size = 35
+text = "a"
+
+[node name="Label2" type="Label" parent="CanvasLayer" unique_id=443318647]
+process_mode = 3
+offset_left = 502.0
+offset_top = 276.0
+offset_right = 635.0
+offset_bottom = 352.0
+theme_override_fonts/font = ExtResource("4_sweqy")
+theme_override_font_sizes/font_size = 30
+text = "PAUSED"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="CanvasLayer" unique_id=1581213530]
+process_mode = 3
+offset_left = 532.0
+offset_top = 391.0
+offset_right = 609.0
+offset_bottom = 445.0
+theme_override_fonts/font = ExtResource("4_sweqy")
+text = "continue
+playing"
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=90054704]
+offset_left = 404.0
+offset_right = 532.0
+offset_bottom = 128.0
+texture = ExtResource("4_hqtel")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="CanvasLayer" unique_id=1288904767]
+position = Vector2(1152, 0)
+amount = 15
+emission_shape = 3
+emission_rect_extents = Vector2(1152, 648)
+direction = Vector2(-1, 1)
+spread = 15.71
+gravity = Vector2(-30, 980)
+initial_velocity_min = 50.0
+initial_velocity_max = 150.0
+scale_amount_min = 2.0
+scale_amount_max = 4.0

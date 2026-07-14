@@ -1,13 +1,14 @@
 [gd_scene format=3 uid="uid://rihgnrs2nu1w"]
 
 [ext_resource type="Script" uid="uid://bbphc8r2c4vx1" path="res://marty.gd" id="1_sjqyy"]
-[ext_resource type="Texture2D" uid="uid://cpm7fwemouhmn" path="res://Marty.png" id="1_vu2ji"]
+[ext_resource type="Texture2D" uid="uid://dgx2osot12v8j" path="res://Marty_spr.png" id="2_sspw1"]
+[ext_resource type="Texture2D" uid="uid://iljby7yvpwyr" path="res://slash_effect.png" id="3_l2xpp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sjqyy"]
-size = Vector2(91, 186)
+size = Vector2(111, 186)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sspw1"]
-size = Vector2(92, 185)
+size = Vector2(111, 185)
 
 [node name="marty" type="CharacterBody2D" unique_id=400869686]
 collision_layer = 2
@@ -16,11 +17,12 @@ script = ExtResource("1_sjqyy")
 
 [node name="Marty" type="Sprite2D" parent="." unique_id=24535889]
 texture_filter = 1
-scale = Vector2(7.605469, 7.7695313)
-texture = ExtResource("1_vu2ji")
+position = Vector2(-11.999999, -8.312498)
+scale = Vector2(1.2343751, 1.6611329)
+texture = ExtResource("2_sspw1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1358862011]
-position = Vector2(-7.5, -16)
+position = Vector2(-17.5, -16)
 shape = SubResource("RectangleShape2D_sjqyy")
 
 [node name="Areadaño" type="Area2D" parent="." unique_id=12232444]
@@ -28,5 +30,10 @@ collision_layer = 2
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Areadaño" unique_id=1046729099]
-position = Vector2(-7, -15.5)
+position = Vector2(-16.5, -15.5)
 shape = SubResource("RectangleShape2D_sspw1")
+
+[node name="SlashEffect" type="Sprite2D" parent="." unique_id=1021158495]
+visible = false
+position = Vector2(-73, 1)
+texture = ExtResource("3_l2xpp")

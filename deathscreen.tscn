@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://1mm4uw0wkc1n" path="res://deathscreen.gd" id="1_5mq0c"]
 [ext_resource type="Texture2D" uid="uid://vk8uils8omh8" path="res://skull.webp" id="1_ftl74"]
+[ext_resource type="AudioStream" uid="uid://wxesb1xmcoy1" path="res://universfield-bone-crack-3-121580.mp3" id="3_0ajwu"]
 
 [node name="deathscreen" type="Control" unique_id=1629218379]
 layout_mode = 3
@@ -11,6 +12,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_5mq0c")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1930582836]
+layout_mode = 0
+offset_right = 1163.0
+offset_bottom = 649.0
+color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="." unique_id=1534225253]
 layout_mode = 0
@@ -23,7 +30,7 @@ text = "It seems that you're dead..."
 autowrap_mode = 3
 
 [node name="Skull" type="Sprite2D" parent="." unique_id=514458873]
-position = Vector2(576, 125)
+position = Vector2(555, 125.00001)
 scale = Vector2(0.17656243, 0.171875)
 texture = ExtResource("1_ftl74")
 
@@ -34,3 +41,7 @@ offset_top = 463.0
 offset_right = 622.0
 offset_bottom = 542.0
 text = "Retry"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1198156522]
+stream = ExtResource("3_0ajwu")
+autoplay = true

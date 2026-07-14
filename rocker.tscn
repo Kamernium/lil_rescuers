@@ -1,16 +1,55 @@
 [gd_scene format=3 uid="uid://cxxiga5c51xtw"]
 
 [ext_resource type="Script" uid="uid://c0y3lmwx1t133" path="res://rocker.gd" id="1_rdx13"]
-[ext_resource type="Texture2D" uid="uid://credguiroj1cv" path="res://rockerplchd.png" id="2_l5l2b"]
+[ext_resource type="Texture2D" uid="uid://b3kthnyb3qtlv" path="res://Rocker_spr_sin_feet.png" id="2_l5l2b"]
+[ext_resource type="Texture2D" uid="uid://cb1c48s1glojr" path="res://rocker_feet.png" id="3_k3dwm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k3dwm"]
-size = Vector2(80, 148)
+size = Vector2(132, 252)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rdx13"]
-size = Vector2(94, 160)
+size = Vector2(131, 241)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rdx13"]
-radius = 745.00604
+radius = 866.6672
+
+[sub_resource type="Animation" id="Animation_l5l2b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_k3dwm"]
+resource_name = "walk"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.2617993877991494, 0.0, 0.2617993877991494, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f5c8x"]
+_data = {
+&"RESET": SubResource("Animation_l5l2b"),
+&"walk": SubResource("Animation_k3dwm")
+}
 
 [node name="Rocker" type="CharacterBody2D" unique_id=1902046366]
 collision_layer = 0
@@ -18,12 +57,16 @@ script = ExtResource("1_rdx13")
 
 [node name="Rockerplchd" type="Sprite2D" parent="." unique_id=651711910]
 texture_filter = 1
-position = Vector2(10.343747, -12.843749)
-scale = Vector2(4.7910156, 5.0722656)
+scale = Vector2(2.1718752, 2.1757813)
 texture = ExtResource("2_l5l2b")
 
+[node name="RockerFeet" type="Sprite2D" parent="." unique_id=1170468176]
+position = Vector2(42.999996, 36)
+scale = Vector2(2.1953125, 1.5859375)
+texture = ExtResource("3_k3dwm")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1560749133]
-position = Vector2(12, -10)
+position = Vector2(38, 15)
 shape = SubResource("RectangleShape2D_k3dwm")
 
 [node name="Areadaño" type="Area2D" parent="." unique_id=731689485]
@@ -31,7 +74,7 @@ collision_layer = 2
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Areadaño" unique_id=17517866]
-position = Vector2(14, -11)
+position = Vector2(39, 16)
 shape = SubResource("RectangleShape2D_rdx13")
 
 [node name="detectplayer" type="Area2D" parent="." unique_id=1670865077]
@@ -39,3 +82,6 @@ collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detectplayer" unique_id=878191741]
 shape = SubResource("CircleShape2D_rdx13")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1319944008]
+libraries/ = SubResource("AnimationLibrary_f5c8x")

@@ -5,7 +5,13 @@ var state : State = State.SCANNING : set = _set_state
 var target : Area2D
 var wait_time : float = 3.0
 var selected_attack : int
-var life_points : int = 100
+var life_points : int = 150
+
+@onready var progress_bar = $ProgressBar
+
+var laser_sound = preload("res://bfxr_sounds/Laser1.wav")
+var shoot_sfx = preload("res://bfxr_sounds/Powerup.wav")
+var slice_sfx = preload("res://bfxr_sounds/Explosion2.wav")
 
 var projectile = preload("res://axeprojectile.tscn")
 var laser_scene = preload("res://laser.tscn")
@@ -20,10 +26,11 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	$Label.text = str(life_points)
-	if life_points <= 50 and life_points >= 20:
+	#$Label.text = str(life_points)
+	progress_bar.value = life_points
+	if life_points <= 100 and life_points >= 50:
 		wait_time = 1.5
-	elif life_points <= 20:
+	elif life_points <= 50:
 		wait_time = 0.7
 	else:
 		wait_time = 3.0
@@ -36,7 +43,7 @@ func _process(_delta: float) -> void:
 
 
 func player_entering(area : Area2D):
-	print("Detectado: ", area.name, " | Padre: ", area.get_parent().name)
+	
 	state = State.THINKING
 	target = area
 	
@@ -76,12 +83,16 @@ func _set_state(new_state: State) -> void:
 			projectile_instance.global_position = global_position
 			get_tree().current_scene.add_child(projectile_instance)
 			projectile_instance.target = target
+			$AudioStreamPlayer2D.stream = shoot_sfx
+			$AudioStreamPlayer2D.play()
 			await get_tree().create_timer(0.2).timeout
 			end_of_attack()
 
 		State.SLICE:
 			#Añadir animación antes del slice
 			$AnimationPlayer.play("slice")
+			$AudioStreamPlayer2D.stream = slice_sfx
+			$AudioStreamPlayer2D.play()
 			await get_tree().create_timer(0.2).timeout
 			end_of_attack()
 
@@ -89,6 +100,8 @@ func _set_state(new_state: State) -> void:
 			var laser = laser_scene.instantiate()
 			laser.global_position = global_position
 			get_parent().add_child(laser)
+			$AudioStreamPlayer2D.stream = laser_sound
+			$AudioStreamPlayer2D.play()
 			await get_tree().create_timer(laser.sweep_duration + 0.2).timeout
 			end_of_attack()
 

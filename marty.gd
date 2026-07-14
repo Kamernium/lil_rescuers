@@ -17,6 +17,9 @@ func collision(area : Area2D):
 	if area.is_in_group("projectiles"):
 		if !can_hurt:
 			#Animación bloqueando ataque
+			$SlashEffect.visible = true
+			await get_tree().create_timer(0.1).timeout
+			$SlashEffect.visible = false
 			can_hurt = true
 			await get_tree().create_timer(0.4).timeout
 			can_hurt = false 

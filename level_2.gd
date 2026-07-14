@@ -1,10 +1,12 @@
 extends Node2D
 
+var music = load("res://level2_song.ogg")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$warp.area_entered.connect(warp)
-
+	$Player.music.stream = music
+	$Player.music.play()
 
 
 func warp(_area):

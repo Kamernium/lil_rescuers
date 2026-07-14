@@ -20,6 +20,13 @@ size = Vector2(1283, 393)
 [node name="Level_1" type="Node2D" unique_id=1830531148]
 script = ExtResource("1_j7kpp")
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1688154251]
+offset_left = -3369.0
+offset_top = -2196.0
+offset_right = 36497.0
+offset_bottom = 5211.0
+color = Color(0.55455405, 0.554554, 0.5545539, 1)
+
 [node name="Player" parent="." unique_id=660081396 instance=ExtResource("2_hn12h")]
 metadata/_edit_lock_ = true
 

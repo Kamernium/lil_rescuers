@@ -1,27 +1,28 @@
 [gd_scene format=3 uid="uid://o3lngx5td0iq"]
 
-[ext_resource type="Texture2D" uid="uid://lf21vayhoshx" path="res://buffrec.png" id="1_jgaex"]
 [ext_resource type="Script" uid="uid://cgp6vlt2l3mjm" path="res://buffrec.gd" id="1_y7wyp"]
+[ext_resource type="Texture2D" uid="uid://tetjkx3l4op1" path="res://Buffrec_spr.png" id="2_y7wyp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jgaex"]
-size = Vector2(158, 113)
+size = Vector2(113, 168)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y7wyp"]
-size = Vector2(167, 122.5)
+size = Vector2(113, 169)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2rjm7"]
 radius = 665.1083
 
 [node name="buffrec" type="CharacterBody2D" unique_id=1417850835]
+collision_layer = 0
 script = ExtResource("1_y7wyp")
 
 [node name="Buffrec" type="Sprite2D" parent="." unique_id=2062678096]
 texture_filter = 1
-scale = Vector2(4.9999995, 4.2499995)
-texture = ExtResource("1_jgaex")
+scale = Vector2(1.3515624, 1.4960936)
+texture = ExtResource("2_y7wyp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1160821851]
-position = Vector2(0, 7.5)
+position = Vector2(-3.5, 10)
 shape = SubResource("RectangleShape2D_jgaex")
 
 [node name="Areadaño" type="Area2D" parent="." unique_id=2142784156]
@@ -29,7 +30,7 @@ collision_layer = 2
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Areadaño" unique_id=2009076188]
-position = Vector2(0.5, 4.75)
+position = Vector2(-3.5, 10.5)
 shape = SubResource("RectangleShape2D_y7wyp")
 
 [node name="detectplayer" type="Area2D" parent="." unique_id=568194387]

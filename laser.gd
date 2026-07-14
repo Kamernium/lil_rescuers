@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var sweep_duration: float = 0.9       # cuánto tarda en barrer de un lado a otro
+@export var sweep_duration: float = 1.5      # cuánto tarda en barrer de un lado a otro
 @export var angle_start: float = -360       # grados, desde la derecha del jefe
 @export var angle_end: float = -180           # grados, hacia la izquierda del jefe
 @export var beam_length: float = 800.0
