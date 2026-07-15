@@ -26,6 +26,7 @@ func _ready() -> void:
 	$bossmodeactivator.area_entered.connect(boss_mode)
 	$intakill.area_entered.connect(out_of_bounds)
 	$CanvasLayer/Button.pressed.connect(despausar)
+	$CanvasLayer/Button2.pressed.connect(wiki_btn)
 
 func _physics_process(delta: float) -> void:
 	if lilguys < 1:
@@ -35,7 +36,7 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 
 	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 		sfx.stream = jump_sound_effect
 		sfx.play()
@@ -157,3 +158,15 @@ func out_of_bounds(_area):
 
 func despausar():
 	get_tree().paused = false
+
+func wiki_btn():
+	if bossmode == false:
+		if $CanvasLayer/TextureRect2.visible:
+			$CanvasLayer/TextureRect2.visible = false
+		else:
+			$CanvasLayer/TextureRect2.visible = true
+	else:
+		if $CanvasLayer/TextureRect3.visible:
+			$CanvasLayer/TextureRect3.visible = false
+		else:
+			$CanvasLayer/TextureRect3.visible = true

@@ -7,6 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://rihgnrs2nu1w" path="res://marty.tscn" id="4_rka8t"]
 [ext_resource type="PackedScene" uid="uid://o3lngx5td0iq" path="res://buffrec.tscn" id="5_rka8t"]
 [ext_resource type="PackedScene" uid="uid://dlt5jd1qq75an" path="res://one_use_platform.tscn" id="6_5hph3"]
+[ext_resource type="PackedScene" uid="uid://cbcahwnqhjpa4" path="res://scene_transition.tscn" id="8_bjebc"]
+[ext_resource type="Texture2D" uid="uid://qhl3yf6vpkvb" path="res://bfxr_sounds/Z-Key.png" id="9_gyffv"]
+[ext_resource type="FontFile" uid="uid://bwkiolxlfuxei" path="res://AlfaSlabOne-Regular.ttf" id="10_1pe0h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3w7jd"]
 size = Vector2(628, 1031.5)
@@ -50,7 +53,7 @@ position = Vector2(15282, 953)
 position = Vector2(16487, 965)
 
 [node name="buffrec" parent="." unique_id=1417850835 instance=ExtResource("5_rka8t")]
-position = Vector2(19547, 954)
+position = Vector2(19547, 872)
 
 [node name="marty2" parent="." unique_id=806795101 instance=ExtResource("4_rka8t")]
 position = Vector2(21833, 945)
@@ -130,3 +133,19 @@ collision_layer = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="warp" unique_id=1265962093]
 position = Vector2(-22.5, 200.5)
 shape = SubResource("RectangleShape2D_t57is")
+
+[node name="scene_transition" parent="." unique_id=1606066472 instance=ExtResource("8_bjebc")]
+
+[node name="ZKey" type="Sprite2D" parent="." unique_id=496424186]
+position = Vector2(1641, -466)
+scale = Vector2(0.1796875, 0.18164063)
+texture = ExtResource("9_gyffv")
+
+[node name="Label" type="Label" parent="." unique_id=1888003605]
+offset_left = 1720.0
+offset_top = -489.0
+offset_right = 1921.0
+offset_bottom = -433.0
+theme_override_fonts/font = ExtResource("10_1pe0h")
+theme_override_font_sizes/font_size = 40
+text = "To attack"

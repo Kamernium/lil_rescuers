@@ -4,13 +4,13 @@
 [ext_resource type="Texture2D" uid="uid://tetjkx3l4op1" path="res://Buffrec_spr.png" id="2_y7wyp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jgaex"]
-size = Vector2(113, 168)
+size = Vector2(152, 278)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y7wyp"]
-size = Vector2(113, 169)
+size = Vector2(154, 284)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2rjm7"]
-radius = 665.1083
+radius = 925.00214
 
 [node name="buffrec" type="CharacterBody2D" unique_id=1417850835]
 collision_layer = 0
@@ -18,11 +18,11 @@ script = ExtResource("1_y7wyp")
 
 [node name="Buffrec" type="Sprite2D" parent="." unique_id=2062678096]
 texture_filter = 1
-scale = Vector2(1.3515624, 1.4960936)
+scale = Vector2(2.099121, 2.43042)
 texture = ExtResource("2_y7wyp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1160821851]
-position = Vector2(-3.5, 10)
+position = Vector2(-8, 25)
 shape = SubResource("RectangleShape2D_jgaex")
 
 [node name="Areadaño" type="Area2D" parent="." unique_id=2142784156]
@@ -30,7 +30,7 @@ collision_layer = 2
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Areadaño" unique_id=2009076188]
-position = Vector2(-3.5, 10.5)
+position = Vector2(-3, 26)
 shape = SubResource("RectangleShape2D_y7wyp")
 
 [node name="detectplayer" type="Area2D" parent="." unique_id=568194387]
@@ -38,3 +38,5 @@ collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detectplayer" unique_id=1898738264]
 shape = SubResource("CircleShape2D_2rjm7")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1263846415]

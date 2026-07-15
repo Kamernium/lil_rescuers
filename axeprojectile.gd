@@ -3,6 +3,7 @@ extends Area2D
 @export var speed: float = 360.0
 var target: Node2D = null
 
+
 func _ready() -> void:
 	area_entered.connect(on_area_entered)
 
@@ -14,7 +15,11 @@ func _physics_process(delta: float) -> void:
 	
 	var direction: Vector2 = (target.global_position - global_position).normalized()
 	global_position += direction * speed * delta
-	rotation = direction.angle()  # opcional, para orientar el sprite
+	var rotate_anim : Tween = get_tree().create_tween()
+	rotate_anim.set_loops()
+	rotate_anim.bind_node(self)
+	rotate_anim.tween_property(self,"rotation",-360,3.5).set_delay(1.0)
+	#rotation = direction.angle()  # opcional, para orientar el sprite
 
 func on_area_entered(area : Area2D):
 	if area == target or area.is_in_group("projectiles"):

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c05a58ldf6pcl"]
 
-[ext_resource type="Texture2D" uid="uid://duiafe5dxxr1b" path="res://icon.svg" id="1_iwjhx"]
 [ext_resource type="Script" uid="uid://dfhi7mkdhnow6" path="res://lilguy.gd" id="1_ln6qp"]
+[ext_resource type="Texture2D" uid="uid://bhkeb1w7dpgrf" path="res://lilguy_attack.png" id="2_ln6qp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ln6qp"]
 size = Vector2(120, 41)
@@ -12,8 +12,8 @@ collision_mask = 10
 script = ExtResource("1_ln6qp")
 
 [node name="Icon" type="Sprite2D" parent="." unique_id=1331790459]
-scale = Vector2(1, 0.34375)
-texture = ExtResource("1_iwjhx")
+scale = Vector2(1.1328125, 0.921875)
+texture = ExtResource("2_ln6qp")
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=636012912]

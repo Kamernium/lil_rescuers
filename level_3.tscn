@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://8p8753ocwau" path="res://level_3.gd" id="1_j8bo8"]
 [ext_resource type="PackedScene" uid="uid://bu3aqxdr0btnk" path="res://player.tscn" id="2_j8bo8"]
 [ext_resource type="PackedScene" uid="uid://c33qt2n6edy25" path="res://axessin.tscn" id="3_1jdk1"]
+[ext_resource type="PackedScene" uid="uid://cbcahwnqhjpa4" path="res://scene_transition.tscn" id="5_1jdk1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4qo3b"]
 size = Vector2(144, 643)
@@ -32,7 +33,7 @@ tile_set = ExtResource("1_16pka")
 position = Vector2(0, 68)
 
 [node name="axessin" parent="." unique_id=1615843848 instance=ExtResource("3_1jdk1")]
-position = Vector2(8043, -1130)
+position = Vector2(7955, -1124)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=991287131]
 visible = false
@@ -70,3 +71,5 @@ collision_mask = 0
 position = Vector2(-41.5, 115.5)
 shape = SubResource("RectangleShape2D_j8bo8")
 metadata/_edit_lock_ = true
+
+[node name="scene_transition" parent="." unique_id=1606066472 instance=ExtResource("5_1jdk1")]

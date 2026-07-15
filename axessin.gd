@@ -90,6 +90,14 @@ func _set_state(new_state: State) -> void:
 
 		State.SLICE:
 			#Añadir animación antes del slice
+			modulate.a = 0.5
+			await get_tree().create_timer(0.2).timeout
+			modulate.a = 1
+			await get_tree().create_timer(0.2).timeout
+			modulate.a = 0.5
+			await get_tree().create_timer(0.2).timeout
+			modulate.a = 1
+			await get_tree().create_timer(0.2).timeout
 			$AnimationPlayer.play("slice")
 			$AudioStreamPlayer2D.stream = slice_sfx
 			$AudioStreamPlayer2D.play()
@@ -107,4 +115,7 @@ func _set_state(new_state: State) -> void:
 
 		State.DAMAGED:
 			#queue_free()
+			$Axessin.visible = false
+			$dead_sprite.visible = true
+			await get_tree().create_timer(1.0).timeout
 			get_tree().change_scene_to_file("res://ending.tscn")

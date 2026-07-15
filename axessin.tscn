@@ -3,12 +3,13 @@
 [ext_resource type="Script" uid="uid://bedgdcs7g6f2i" path="res://axessin.gd" id="1_vr0xy"]
 [ext_resource type="Texture2D" uid="uid://cya0uacd48vpv" path="res://Axessin_spr.png" id="2_vr0xy"]
 [ext_resource type="FontFile" uid="uid://bwkiolxlfuxei" path="res://AlfaSlabOne-Regular.ttf" id="3_rohl5"]
+[ext_resource type="Texture2D" uid="uid://p7jbq7e3cr7f" path="res://Axessin_dead.png" id="3_tw8up"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vr0xy"]
 size = Vector2(544, 690)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rohl5"]
-radius = 2501.0337
+radius = 2394.0676
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rohl5"]
 size = Vector2(549, 333)
@@ -60,6 +61,12 @@ script = ExtResource("1_vr0xy")
 texture_filter = 1
 scale = Vector2(5.3554688, 5.535156)
 texture = ExtResource("2_vr0xy")
+
+[node name="dead_sprite" type="Sprite2D" parent="." unique_id=1751205802]
+visible = false
+position = Vector2(3.4999933, 12.50001)
+scale = Vector2(4.2421875, 5.445312)
+texture = ExtResource("3_tw8up")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1397830860]
 position = Vector2(3, 13)

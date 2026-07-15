@@ -11,6 +11,8 @@ func _ready() -> void:
 
 func destruction():
 	#Animación (todavía no decidido)
+	var fall_anim : Tween = get_tree().create_tween()
+	fall_anim.tween_property(self,"global_position",Vector2(global_position.x,global_position.y + 100),1.0)
 	await get_tree().create_timer(0.1).timeout
 	queue_free()
 

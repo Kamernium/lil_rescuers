@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 var lives = 3
+var land_sound = preload("res://bfxr_sounds/Explosion.wav")
 
 enum State { IDLE, TRACKING, FALLING, LANDED }
 var state: State = State.IDLE
@@ -41,6 +42,8 @@ func player_attack(area : Area2D):
 
 func land() -> void:
 	state = State.LANDED # cambia de estado INMEDIATAMENTE para no reentrar
+	$AudioStreamPlayer2D.stream = land_sound
+	$AudioStreamPlayer2D.play()
 	velocity = Vector2.ZERO
 	# aquí podrías añadir daño en área, shake de cámara, animación de impacto, etc.
 	await get_tree().create_timer(0.9).timeout

@@ -15,6 +15,7 @@ func _ready() -> void:
 	
 	rotation_degrees = angle_start
 	var tween := create_tween()
+	tween.bind_node(self)
 	tween.tween_property(self, "rotation_degrees", angle_end, sweep_duration)
 	tween.tween_callback(queue_free)  # se destruye al terminar el barrido
 

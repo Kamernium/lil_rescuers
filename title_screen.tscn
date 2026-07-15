@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://6552gu0wqgvm" path="res://title_screen.gd" id="1_v6p8y"]
 [ext_resource type="Texture2D" uid="uid://d1brcqlh2gdkn" path="res://bfxr_sounds/title_screenlilguy.png" id="2_ak2if"]
 [ext_resource type="FontFile" uid="uid://bwkiolxlfuxei" path="res://AlfaSlabOne-Regular.ttf" id="2_ig5kc"]
+[ext_resource type="Texture2D" uid="uid://bv1ayahemcoi4" path="res://cmcplchld.png" id="4_05l2w"]
+[ext_resource type="AudioStream" uid="uid://dn3sd6lcx5t64" path="res://Clair_de_Lune_by_Claude_Debussy_(1905,_piano_solo).ogg" id="5_hafda"]
 
 [node name="title_screen" type="Control" unique_id=543605132]
 layout_mode = 3
@@ -18,8 +20,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -1.0
-offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Label" type="Label" parent="." unique_id=1830759519]
 layout_mode = 1
@@ -59,3 +61,12 @@ offset_top = 319.0
 offset_right = 1149.0
 offset_bottom = 639.0
 texture = ExtResource("2_ak2if")
+
+[node name="Comic" type="TextureRect" parent="." unique_id=317877769]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("4_05l2w")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1209110689]
+stream = ExtResource("5_hafda")
