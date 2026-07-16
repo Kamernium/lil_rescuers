@@ -4,15 +4,19 @@
 [ext_resource type="Texture2D" uid="uid://cya0uacd48vpv" path="res://Axessin_spr.png" id="2_vr0xy"]
 [ext_resource type="FontFile" uid="uid://bwkiolxlfuxei" path="res://AlfaSlabOne-Regular.ttf" id="3_rohl5"]
 [ext_resource type="Texture2D" uid="uid://p7jbq7e3cr7f" path="res://Axessin_dead.png" id="3_tw8up"]
+[ext_resource type="Texture2D" uid="uid://iljby7yvpwyr" path="res://slash_effect.png" id="5_bnp83"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vr0xy"]
 size = Vector2(544, 690)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rohl5"]
-radius = 2394.0676
+radius = 2550.0442
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rohl5"]
 size = Vector2(549, 333)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4qo3b"]
+size = Vector2(553, 246)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bnp83"]
 radius = 117.00427
@@ -31,6 +35,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SlashEffect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_rohl5"]
 resource_name = "slice"
@@ -45,6 +61,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [0.0, -1.5707964, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SlashEffect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tw8up"]
@@ -85,6 +113,10 @@ collision_layer = 2
 position = Vector2(0.5, -166.5)
 shape = SubResource("RectangleShape2D_rohl5")
 
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="areadaño" unique_id=110251521]
+position = Vector2(17.5, -635)
+shape = SubResource("RectangleShape2D_4qo3b")
+
 [node name="weak_point" type="Area2D" parent="." unique_id=1019148008]
 collision_layer = 8
 collision_mask = 4
@@ -119,3 +151,10 @@ theme_override_fonts/font = ExtResource("3_rohl5")
 theme_override_font_sizes/font_size = 45
 max_value = 150.0
 value = 150.0
+
+[node name="SlashEffect" type="Sprite2D" parent="." unique_id=1440869432]
+visible = false
+position = Vector2(19.500023, -503)
+rotation = 1.5707964
+scale = Vector2(3.2187502, 4.2734375)
+texture = ExtResource("5_bnp83")

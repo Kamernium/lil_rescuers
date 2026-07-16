@@ -6,7 +6,7 @@ var land_sound = preload("res://bfxr_sounds/Explosion.wav")
 enum State { IDLE, TRACKING, FALLING, LANDED }
 var state: State = State.IDLE
 var target: Node = null
-var fall_speed: float = 135000.5
+var fall_speed: float = 90000.5
 var max_height : float
 
 # Called when the node enters the scene tree for the first time.

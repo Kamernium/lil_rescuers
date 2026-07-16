@@ -2,8 +2,8 @@
 
 [ext_resource type="FontFile" uid="uid://bwkiolxlfuxei" path="res://AlfaSlabOne-Regular.ttf" id="1_dmh3q"]
 [ext_resource type="Script" uid="uid://dkcfb0u10lc5l" path="res://ending.gd" id="1_k7rdy"]
-[ext_resource type="Texture2D" uid="uid://duiafe5dxxr1b" path="res://icon.svg" id="2_iggq8"]
 [ext_resource type="AudioStream" uid="uid://dn3sd6lcx5t64" path="res://Clair_de_Lune_by_Claude_Debussy_(1905,_piano_solo).ogg" id="3_iggq8"]
+[ext_resource type="Texture2D" uid="uid://c8oj37ccww34y" path="res://ending.jpg" id="3_k7rdy"]
 [ext_resource type="PackedScene" uid="uid://cbcahwnqhjpa4" path="res://scene_transition.tscn" id="5_sy8ce"]
 
 [node name="Ending" type="Control" unique_id=203044947]
@@ -14,6 +14,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_k7rdy")
+
+[node name="scene_transition" parent="." unique_id=1606066472 instance=ExtResource("5_sy8ce")]
+layout_mode = 1
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1287900821]
 layout_mode = 0
@@ -49,12 +52,10 @@ autowrap_mode = 2
 layout_mode = 0
 offset_left = 456.0
 offset_top = 219.0
-offset_right = 663.0
-offset_bottom = 419.0
-texture = ExtResource("2_iggq8")
+offset_right = 714.0
+offset_bottom = 464.0
+texture = ExtResource("3_k7rdy")
+expand_mode = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1999929890]
 stream = ExtResource("3_iggq8")
-
-[node name="scene_transition" parent="." unique_id=1606066472 instance=ExtResource("5_sy8ce")]
-layout_mode = 1

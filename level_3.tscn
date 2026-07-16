@@ -33,7 +33,7 @@ tile_set = ExtResource("1_16pka")
 position = Vector2(0, 68)
 
 [node name="axessin" parent="." unique_id=1615843848 instance=ExtResource("3_1jdk1")]
-position = Vector2(7955, -1124)
+position = Vector2(8175, -1122)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=991287131]
 visible = false

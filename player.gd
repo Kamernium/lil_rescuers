@@ -52,9 +52,13 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_pressed("ui_left"):
 		position.x -= SPEED * delta
+		$Player_spr.play("walk")
 		
 	elif Input.is_action_pressed("ui_right"):
 		position.x += SPEED * delta
+		$Player_spr.play("walk")
+	else:
+		$Player_spr.play("idle")
 		
 	
 	if Input.is_action_just_released("attack"):
